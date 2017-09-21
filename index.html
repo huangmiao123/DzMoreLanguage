@@ -8,7 +8,7 @@
   <meta name="Description" content="">
   <title>Document</title>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="Lang/Lang.js"></script>
+  <script src="Language/Lang.js"></script>
  </head>
  <body>
   多语言切换框架
@@ -24,20 +24,10 @@
   <br/>
   ------------------------------
   <br/>
-  正常加载如下：<span id="app_1"></span>
-  正常加载如下：<span id="module_1"></span>
+  正常加载如下：<span id="app_1"></span><br/>
+  模块加载如下：<span id="module_1"></span>
   <script>
-	$(document).ready(function(){
-		$("#app_1").text(lang["app_1"]);
-		$("#module_1").text(lang["module_1"]);
-
-		alert(lang["module_1"]);
-
-		for(var p in lang){
-			var str = lang[p];
-			console.log(str);
-		}
-	});
+	bindView("app_1");
   </script>
  </body>
 </html>
