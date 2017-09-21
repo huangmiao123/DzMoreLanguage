@@ -13,10 +13,11 @@
 
 ### 如何创建语言模块
 > 请先在Language/module文件夹下创建一个模块名目录如：test。分别在该目录下创建cn.js、en.js更多语言请自行扩展。
+![](https://github.com/fanhua1994/MultilingualJs/blob/master/Image/Image%201.png?raw=true)
 
 ### 创建语言库规则
 > 比如：cn.js
-> lang["module_1"] = "l am module text";//module_1是key ,"l am module text"是值（不包括双引号）
+ lang["module_1"] = "l am module text";//module_1是key ,"l am module text"是值（不包括双引号）
 
 > 想要自动加载的模块请使用url参数module_lang=模块名称，请记住一个界面只能加载一个模块，加载再多也无意义。
 ```
