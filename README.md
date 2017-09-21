@@ -10,8 +10,13 @@
 + 支持url、支持扩展文件(lang.txt)、cookie、配置文件（优先级递减）四种方式进行多语言切换。
 + 支持语言库模块化，在加载了locale、您可以设置还需要加载的语言库模块。
 
+
 ### 如何创建语言模块
 > 请先在Language/module文件夹下创建一个模块名目录如：test。分别在该目录下创建cn.js、en.js更多语言请自行扩展。
+
+### 创建语言库规则
+> 比如：cn.js
+> lang["module_1"] = "l am module text";//module_1是key ,"l am module text"是值（不包括双引号）
 
 > 想要自动加载的模块请使用url参数module_lang=模块名称，请记住一个界面只能加载一个模块，加载再多也无意义。
 ```
