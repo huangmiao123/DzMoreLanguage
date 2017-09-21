@@ -13,11 +13,6 @@ var default_version = "en";//默认版本
 var default_version_url = "lang.txt";//
 //=============END===================
 
-//同步访问
- $.ajaxSetup({  
-    async : false  
-});
-
 function GetQueryString(name)
 {
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -52,23 +47,6 @@ console.log("加载param后的值：" + url_lang);
 
 
 if(url_lang == null){
-	$.get(default_version_url+"?random=" + Math.random(),function(data,status){
-		if(status == "success"){
-			if(data.trim() != "none"){
-				default_version = data;
-				url_lang = default_version;
-			}else{
-				url_lang = null;
-			}
-		}else{
-			url_lang = null;
-		}
-	});
-}
-
-console.log("加载url后的值：" + url_lang);
-
-if(url_lang == null){
 	url_lang = getCookie("lang");
 	if(url_lang != null){
 		default_version = url_lang;
@@ -78,6 +56,14 @@ if(url_lang == null){
 console.log("加载cookie后的值：" + url_lang);
 
 console.log("当前语言：" + default_version);
+
+
+//自动加载模块语言
+var module_lang = GetQueryString("module_lang");
+if(module_lang != null){
+	$.getScript("lang/module/" + module_lang + "/" + default_version +".js");
+	console.log("模块"+module_lang + "加载成功");
+}
 
 //自动加载语言包
 $.getScript("lang/locale/" + default_version +".js");

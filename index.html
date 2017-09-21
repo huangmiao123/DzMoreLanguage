@@ -24,10 +24,19 @@
   <br/>
   ------------------------------
   <br/>
-  变量信息如下：<span id="app_1"></span>
+  正常加载如下：<span id="app_1"></span>
+  正常加载如下：<span id="module_1"></span>
   <script>
 	$(document).ready(function(){
 		$("#app_1").text(lang["app_1"]);
+		$("#module_1").text(lang["module_1"]);
+
+		alert(lang["module_1"]);
+
+		for(var p in lang){
+			var str = lang[p];
+			console.log(str);
+		}
 	});
   </script>
  </body>
