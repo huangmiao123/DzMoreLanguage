@@ -1,6 +1,7 @@
 var lang = [];//加载语言
 
 var lang_version = [];//语言版本号
+var url_lang = null;//检测当前版本
 
 
 
@@ -12,6 +13,10 @@ var default_version = "en";//默认版本
 var default_version_url = "lang.txt";//
 //=============END===================
 
+//同步访问
+ $.ajaxSetup({  
+    async : false  
+});
 
 function GetQueryString(name)
 {
@@ -38,17 +43,23 @@ function getCookie(name)
 }
 
 //url判断
-var url_lang = GetQueryString("lang");
+url_lang = GetQueryString("lang");
 if(url_lang != null){
 	default_version = url_lang;
 }
 
 console.log("加载param后的值：" + url_lang);
 
+
 if(url_lang == null){
-	url_lang = $.get(default_version_url+"?random=" + Math.random(),function(data){
-		if(data+"" != "none"){
-			default_version = data+"";
+	$.get(default_version_url+"?random=" + Math.random(),function(data,status){
+		if(status == "success"){
+			if(data.trim() != "none"){
+				default_version = data;
+				url_lang = default_version;
+			}else{
+				url_lang = null;
+			}
 		}else{
 			url_lang = null;
 		}
