@@ -19,7 +19,7 @@
 > 比如：cn.js
  lang["module_1"] = "l am module text";//module_1是key ,"l am module text"是值（不包括双引号）
 
-> 想要自动加载的模块请使用url参数module_lang=模块名称，请记住一个界面只能加载一个模块，加载再多也无意义。
+> 想要自动加载的模块请使用url参数module_lang=模块名称，请记住一个界面只能加载一个模块，加载再多也无意义。=>(http://localhost:8080/index.html?module_lang=test)
 ```
 //自动加载模块语言
 var module_lang = GetQueryString("module_lang");
