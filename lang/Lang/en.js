@@ -1,0 +1,1 @@
+lang["app_1"] = " l love you";
