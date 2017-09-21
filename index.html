@@ -8,14 +8,26 @@
   <meta name="Description" content="">
   <title>Document</title>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="lang/Lang.js"></script>
+  <script src="Lang/Lang.js"></script>
  </head>
  <body>
-  多语言设置
-
+  多语言切换框架
+  <li>
+	支持url、扩展文件、配置文件、cookie四种方式进行多语言切换。
+  </li>
+  <li>
+	支持从url中获取内容（开启直接返回语言编号，不开启请返回none）
+  </li>
+  <li>
+	支持语言库模块化，在加载了locale、您可以设置还需要加载的语言库模块
+  </li>
+  <br/>
+  ------------------------------
+  <br/>
+  变量信息如下：<span id="app_1"></span>
   <script>
 	$(document).ready(function(){
-		alert(lang["app_1"]);
+		$("#app_1").text(lang["app_1"]);
 	});
   </script>
  </body>
