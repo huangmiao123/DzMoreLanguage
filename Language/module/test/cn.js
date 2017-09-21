@@ -1,1 +1,1 @@
-lang["module_1"] = "我是模块里的文字";
+lang["module_1"] = "鎴戞槸妯″潡閲岀殑鏂囧瓧";
