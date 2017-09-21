@@ -31,6 +31,10 @@ function setCookie(name,value)
 	document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
 }
 
+function setLanguage(lang){
+	setCookie(lang);
+}
+
 function getCookie(name)
 {
 	var arr,reg = new RegExp("(^| )"+name+"=([^;]*)(;|$)");
@@ -122,19 +126,19 @@ if(url_lang != null){
 
 console.log("加载param后的值：" + url_lang);
 
-if(url_lang == null)
-	loadLang();
-console.log("加载url后的值：" + url_lang);
-
-
 if(url_lang == null){
 	url_lang = getCookie("lang");
 	if(url_lang != null){
 		default_version = url_lang;
 	}
 }
-
 console.log("加载cookie后的值：" + url_lang);
+
+if(url_lang == null)
+	loadLang();
+console.log("加载url后的值：" + url_lang);
+
+
 
 console.log("当前语言：" + default_version);
 

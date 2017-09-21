@@ -7,7 +7,7 @@
 
 
 ### 多语言切换框架
-+ 支持url、支持扩展文件(lang.txt)、cookie、配置文件（优先级递减）四种方式进行多语言切换。
++ 支持url、cookie、支持扩展文件(lang.txt)、配置文件（优先级递减）四种方式进行多语言切换。
 + 支持语言库模块化，在加载了locale、您可以设置还需要加载的语言库模块。
 
 
@@ -27,6 +27,30 @@ if(module_lang != null){
 	loadJs("Language/module/" + module_lang + "/" + default_version +".js");
 	console.log("模块"+module_lang + "加载成功");
 }
+```
+
+### 设置语言
+#### URL设置语言版本（最高优先级）
+```
+http://localhost:8080/index.html?lang=cn
+```
+#### URL设置语言版本并加入语言库模块
+```
+http://localhost:8080/index.html?module_lang=test
+```
+
+#### cookie设置语言版本（第二优先级）
+```
+setLanguage("cn");
+```
+
+#### 扩展文件设置（第三优先级）
+```
+动态语言直接操作lang.txt，或者修改Lang.js里的获取版本url。返回none为忽略，否则请返回语言版本,如"cn"。
+
+#### 配置文件（优先级递减）四种方式进行多语言切换。
+```
+var default_version = "en";//位于源代码12行
 ```
 
 ### 绑定视图及常用方法（支持模块绑定）
