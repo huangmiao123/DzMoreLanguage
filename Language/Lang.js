@@ -33,6 +33,7 @@ function setCookie(name,value)
 
 function setLanguage(lang){
 	setCookie(lang);
+	window.history.go(0);
 }
 
 function getCookie(name)
