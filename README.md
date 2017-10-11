@@ -21,14 +21,6 @@
  lang["module_1"] = "你好";//module_1是key ,"你好"是值（不包括双引号）
 
 > 想要自动加载的模块请使用url参数module_lang=模块名称，请记住一个界面只能加载一个模块，加载再多也无意义。=>(http://localhost:8080/index.html?module_lang=test)
-```
-//自动加载模块语言
-var module_lang = GetQueryString("module_lang");
-if(module_lang != null){
-	loadJs("Language/module/" + module_lang + "/" + default_version +".js");
-	console.log("模块"+module_lang + "加载成功");
-}
-```
 
 ### 设置语言
 #### URL设置语言版本（最高优先级）
@@ -56,7 +48,7 @@ var default_version = "en";//位于源代码12行
 ```
 
 ### 绑定视图及常用方法（支持模块绑定）
-#### 设置语言值（方便讲数据库的值进行数据绑定）
+#### 设置语言值（方便将数据库的值进行数据绑定）
 ```
 setValue(key,value);
 ```
