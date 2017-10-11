@@ -77,6 +77,10 @@ function loadLang(){
 	});
 }
 
+function setValue(key,value){
+	lang[key] = value;
+}
+
 /**
 *	如果key不存在将返回默认值
 */

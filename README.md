@@ -17,7 +17,8 @@
 
 ### 创建语言库规则
 > 比如：cn.js
- lang["module_1"] = "l am module text";//module_1是key ,"l am module text"是值（不包括双引号）
+
+ lang["module_1"] = "你好";//module_1是key ,"你好"是值（不包括双引号）
 
 > 想要自动加载的模块请使用url参数module_lang=模块名称，请记住一个界面只能加载一个模块，加载再多也无意义。=>(http://localhost:8080/index.html?module_lang=test)
 ```
@@ -36,7 +37,7 @@ http://localhost:8080/index.html?lang=cn
 ```
 #### URL设置语言版本并加入语言库模块
 ```
-http://localhost:8080/index.html?module_lang=test
+http://localhost:8080/index.html?lang=cn&module_lang=test
 ```
 
 #### cookie设置语言版本（第二优先级）
@@ -55,6 +56,11 @@ var default_version = "en";//位于源代码12行
 ```
 
 ### 绑定视图及常用方法（支持模块绑定）
+#### 设置语言值（方便讲数据库的值进行数据绑定）
+```
+setValue(key,value);
+```
+
 #### 返回值，含默认值 不进行数据绑定
 ```
 getValue(key,defalut_value);
