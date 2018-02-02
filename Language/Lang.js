@@ -158,7 +158,16 @@ debug("当前语言：" + default_version);
 //自动加载模块语言
 var module_lang = GetQueryString("module_lang");
 if(module_lang != null){
-	loadJs("模块包","Language/module/" + module_lang + "/" + default_version +".js");
+	debug("module_lang = " + module_lang);
+	if(module_lang.indexOf(",") > 0){
+		var module_lang_arr = module_lang.split(",");
+		for(i = 0; i < module_lang_arr.length; i++) {
+   			loadJs("模块包","Language/module/" + module_lang_arr[i] + "/" + default_version +".js");
+		} 
+	}else{
+		loadJs("模块包","Language/module/" + module_lang + "/" + default_version +".js");
+	}
+	
 }
 
 //自动加载语言包

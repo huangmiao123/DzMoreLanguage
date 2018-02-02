@@ -1,1 +1,1 @@
-lang["module_1"] = "我是模块里的文字";
+lang["module_1"] = "我是模块test2里的文字";

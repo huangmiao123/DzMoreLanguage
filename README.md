@@ -39,7 +39,7 @@ var default_version_url = "lang.txt";//默认从文件读取语言种类
 
  lang["module_1"] = "你好";//module_1是key ,"你好"是值（不包括双引号）
 
-> 想要自动加载的模块请使用url参数module_lang=模块名称，请记住一个界面只能加载一个模块，加载再多也无意义。=>(http://localhost:8080/index.html?module_lang=test)
+> 想要自动加载的模块请使用url参数module_lang=模块名称。支持多模块自动加载。规则  =>(http://localhost:8080/index.html?module_lang=test,test2)
 
 ### 设置语言
 #### URL设置语言版本（最高优先级）
@@ -64,7 +64,7 @@ http://xxx.com/lang.php  -> echo：cn
 
 #### 配置文件（优先级递减）四种方式进行多语言切换。
 ```
-var default_version = "en";//位于源代码12行
+var default_version = "en";
 ```
 
 ### 绑定视图及常用方法（支持模块绑定）
