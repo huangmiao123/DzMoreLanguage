@@ -1,21 +1,21 @@
+//变量设置
 var lang = [];//加载语言
-
 var lang_version = [];//语言版本号
 var url_lang = null;//检测当前版本
 
-
-
-
-//==========配置文件区==============
-lang_version["cn"] = "简体";
-lang_version["en"] = "英语";
-var default_version = "en";//默认版本
-var default_version_url = "lang.txt";//
-//=============END===================
-
-
+loadJs("加载配置","Language/Setting.js");
 
 //==========函数区===================
+function debug(log){
+	if(lang_debug){
+		if(lang_debug_type == 1)
+			alert(log);
+		else
+			console.log(log);
+	}
+		
+}
+
 function GetQueryString(name)
 {
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -45,21 +45,27 @@ function getCookie(name)
 		return null;
 }
 
-function loadJs(js_file){
+function loadJs(name,js_file){
 	$.ajax({  
     type: 'GET',  
     url:js_file,  
 	cache:true,
     async:false,  
 	contentType:"application/x-www-form-urlencoded; charset=utf-8",
-    dataType:'script'
+    dataType:'script',
+    success:function(data){
+		debug(name + "加载成功");
+	},
+	error:function(data){
+		debug(name + "加载失败");
+	}
 	});
 }
 
 function loadLang(){
 	$.ajax({  
     type: 'GET',  
-    url:default_version_url,  
+    url:"Language/" + default_version_url,  
 	cache:true,
     async:false,  
 	success:function(data){
@@ -129,7 +135,7 @@ if(url_lang != null){
 	default_version = url_lang;
 }
 
-console.log("加载param后的值：" + url_lang);
+debug("加载param后的值：" + url_lang);
 
 if(url_lang == null){
 	url_lang = getCookie("lang");
@@ -137,15 +143,15 @@ if(url_lang == null){
 		default_version = url_lang;
 	}
 }
-console.log("加载cookie后的值：" + url_lang);
+debug("加载cookie后的值：" + url_lang);
 
 if(url_lang == null)
 	loadLang();
-console.log("加载url后的值：" + url_lang);
+debug("加载url后的值：" + url_lang);
 
 
 
-console.log("当前语言：" + default_version);
+debug("当前语言：" + default_version);
 
 
 
@@ -153,9 +159,8 @@ console.log("当前语言：" + default_version);
 //自动加载模块语言
 var module_lang = GetQueryString("module_lang");
 if(module_lang != null){
-	loadJs("Language/module/" + module_lang + "/" + default_version +".js");
-	console.log("模块"+module_lang + "加载成功");
+	loadJs("模块包","Language/module/" + module_lang + "/" + default_version +".js");
 }
 
 //自动加载语言包
-loadJs("Language/locale/" + default_version +".js");
+loadJs("语言包","Language/locale/" + default_version +".js");

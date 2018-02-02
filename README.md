@@ -1,9 +1,28 @@
-# MultilingualJs
+# MultilingualJs语言解决方案
 基于Js的前端多语言切换框架。网站多语言切换，网站多语言解决方案，文章多语言，页面多语言。请您放心，语言包仅加载仅加载一次之后会取缓存。
+
+
+## 当前版本
+目前最新版：1.0.1
+
+## 公告
++ 2018-02-02 升级语言模块。
+
+## 如何使用
+
+下载Language包后放到项目根目录。第二步打开Language->Setting.js做出以下配置
+```
+lang_debug = true;//是否开启调试模式
+lang_debug_type = 2;//1为alert 2为conosle.log
+lang_version["cn"] = "简体";//语言版本种类 可随意扩展
+lang_version["en"] = "英语";
+var default_version = "en";//默认显示的语言种类
+var default_version_url = "lang.txt";//默认从文件读取语言种类
+```
 
 ## 注意
 
-> 调试时请放在服务器内测试，不要直接打开index.html
+> 调试时请放在服务器内测试，不要直接打开index.html，MultilingualJs将依赖于Jquery请务必导入。
 
 
 ### 多语言切换框架
