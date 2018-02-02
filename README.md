@@ -32,7 +32,7 @@ var default_version_url = "lang.txt";//默认从文件读取语言种类
 
 ### 如何创建语言模块
 > 请先在Language/module文件夹下创建一个模块名目录如：test。分别在该目录下创建cn.js、en.js更多语言请自行扩展。
-![](https://github.com/fanhua1994/MultilingualJs/blob/master/Image/Image%201.png?raw=true)
+![](https://github.com/fanhua1994/DzMoreLanguage/blob/master/Image/Image%201.png?raw=true)
 
 ### 创建语言库规则
 > 比如：cn.js
@@ -59,7 +59,7 @@ setLanguage("cn");
 #### 扩展文件设置（第三优先级）
 ```
 动态语言直接操作lang.txt，或者修改Lang.js里的获取版本url。返回none为忽略，否则请返回语言版本,如"cn"。如果您需要自定义这个路径。请保证以下格式。
-http://xxx.com/Language/lang.php  -> echo：cn
+http://xxx.com/lang.php  -> echo：cn
 ```
 
 #### 配置文件（优先级递减）四种方式进行多语言切换。

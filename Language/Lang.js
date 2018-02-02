@@ -13,7 +13,6 @@ function debug(log){
 		else
 			console.log(log);
 	}
-		
 }
 
 function GetQueryString(name)
@@ -65,7 +64,7 @@ function loadJs(name,js_file){
 function loadLang(){
 	$.ajax({  
     type: 'GET',  
-    url:"Language/" + default_version_url,  
+    url: default_version_url,  
 	cache:true,
     async:false,  
 	success:function(data){
