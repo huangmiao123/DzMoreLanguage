@@ -1,4 +1,4 @@
-# MultilingualJs语言解决方案
+# DzMoreLanguage语言解决方案
 基于Js的前端多语言切换框架。网站多语言切换，网站多语言解决方案，文章多语言，页面多语言。请您放心，语言包仅加载仅加载一次之后会取缓存。
 
 
@@ -22,7 +22,7 @@ var default_version_url = "lang.txt";//默认从文件读取语言种类
 
 ## 注意
 
-> 调试时请放在服务器内测试，不要直接打开index.html，MultilingualJs将依赖于Jquery请务必导入。
+> 调试时请放在服务器内测试，不要直接打开index.html，DzMoreLanguage将依赖于Jquery请务必导入。
 
 
 ### 多语言切换框架
@@ -58,7 +58,8 @@ setLanguage("cn");
 
 #### 扩展文件设置（第三优先级）
 ```
-动态语言直接操作lang.txt，或者修改Lang.js里的获取版本url。返回none为忽略，否则请返回语言版本,如"cn"。
+动态语言直接操作lang.txt，或者修改Lang.js里的获取版本url。返回none为忽略，否则请返回语言版本,如"cn"。如果您需要自定义这个路径。请保证以下格式。
+http://xxx.com/Language/lang.php  -> echo：cn
 ```
 
 #### 配置文件（优先级递减）四种方式进行多语言切换。
