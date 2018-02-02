@@ -69,7 +69,7 @@ function loadLang(){
     async:false,  
 	success:function(data){
 		data = data.trim();
-		if(data != "none"){
+		if(data != "none" || data.length != 0){
 			url_lang = data;
 			default_version = url_lang;
 		}else{
