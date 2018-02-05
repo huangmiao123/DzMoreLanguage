@@ -30,7 +30,7 @@ function setCookie(name,value)
 	document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
 }
 
-function setLanguage(lang){
+function changeLanguage(lang){
 	setCookie(lang);
 	window.history.go(0);
 }
@@ -82,22 +82,22 @@ function loadLang(){
 	});
 }
 
-function setValue(key,value){
-	lang[key] = value;
+function setLang(key,language){
+	lang[key] = language;
 }
 
 /**
 *	如果key不存在将返回默认值
 */
-function getValue(key,default_value){
+function getLang(key,default_vlanguage){
 	if(typeof(lang[key])=="undefined"){ 
-		return default_value;
+		return default_vlanguage;
 	}else{
 		return lang[key];
 	}
 }
 
-function getValue(key){
+function getLang(key){
 	if(typeof(lang[key])=="undefined"){ 
 		return null;
 	}else{
@@ -111,10 +111,6 @@ function bindView(key,selector){
 	}
 }
 
-/**
-* 如果key与ID选择器的值相同，请使用这个
-* #app_1   app_1
-*/
 function bindView(key){
 	if(typeof(lang[key]) != "undefined"){
 		$("#" + key).html(lang[key]);
@@ -124,6 +120,30 @@ function bindView(key){
 function autoBindView(){
 	for(var key in lang){
 		bindView(key);
+	}
+}
+
+function bindValue(key,selector){
+	if(typeof(lang[key]) != "undefined"){
+		$(selector).val(lang[key]);
+	}
+}
+
+function bindValue(key){
+	if(typeof(lang[key]) != "undefined"){
+		$("#" + key).val(lang[key]);
+	}
+}
+
+function bindText(key,selector){
+	if(typeof(lang[key]) != "undefined"){
+		$(selector).text(lang[key]);
+	}
+}
+
+function bindText(key){
+	if(typeof(lang[key]) != "undefined"){
+		$("#" + key).text(lang[key]);
 	}
 }
 //======================================

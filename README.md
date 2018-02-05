@@ -14,10 +14,11 @@
 ```
 lang_debug = true;//是否开启调试模式
 lang_debug_type = 2;//1为alert 2为conosle.log
-lang_version["cn"] = "简体";//语言版本种类 可随意扩展
+var default_version = "en";//默认版本
+var default_version_url = "Language/lang.txt";//从url中获得语言版本
+//添加语言库种类 
+lang_version["cn"] = "简体";
 lang_version["en"] = "英语";
-var default_version = "en";//默认显示的语言种类
-var default_version_url = "lang.txt";//默认从文件读取语言种类
 ```
 
 ## 注意
@@ -53,7 +54,7 @@ http://localhost:8080/index.html?lang=cn&module_lang=test
 
 #### cookie设置语言版本（第二优先级）
 ```
-setLanguage("cn");
+changeLanguage("cn");
 ```
 
 #### 扩展文件设置（第三优先级）
@@ -62,28 +63,36 @@ setLanguage("cn");
 http://xxx.com/lang.php  -> echo：cn
 ```
 
-#### 配置文件（优先级递减）四种方式进行多语言切换。
+#### 配置文件（最低优先级）四种方式进行多语言切换。
 ```
 var default_version = "en";
 ```
 
 ### 绑定视图及常用方法（支持模块绑定）
-#### 设置语言值（方便将数据库的值进行数据绑定）
+#### 动态添加语言库（方便将数据库的值进行数据绑定）
+动态添加的数据不能分语言种类。
 ```
-setValue(key,value);
+setLang(key,value);
+#演示
+setLang("apple","苹果");
 ```
 
-#### 返回值，含默认值 不进行数据绑定
+#### 获取语言库，含默认值 不进行数据绑定
 ```
-getValue(key,defalut_value);
+getLang(key,defalut_value);
+#演示
+var text = getLang("apple");
 ```
 
 #### 返回值，没有值则返回null
 ```
-getValue(key);
+getLang(key);
+#与上文一致
 ```
 
 #### 绑定视图 ，带JQ选择器
+绑定到html视图。
+selector.html();
 ```
 bindView(key,selector);
 ```
@@ -93,7 +102,35 @@ bindView(key,selector);
 bindView(key);
 ```
 
-#### 自动绑定，默认ID选择器与key相同。该方法不需要传参数。直接使用。内存消耗较大，语言库过大时请慎重使用。
+#### 自动绑定，默认ID选择器与key相同。该方法不需要传参数。直接使用。语言库过大时请慎重使用。
 ```
 autoBindView();
+```
+
+### 绑定值及常用方法
+有的时候我们想将语言库绑定到输入框的value字段。就可以使用一下方法
+#### 绑定值 ，带JQ选择器
+绑定到html视图。
+selector.val();
+```
+bindValue(key,selector);
+```
+
+#### 绑定值，默认ID选择器且与key相同
+```
+bindValue(key);
+```
+
+### 绑定文本及常用方法
+有的时候我们想将语言库绑定到输入框的value字段。就可以使用一下方法
+#### 绑定文本 ，带JQ选择器
+绑定到html视图。
+selector.text();
+```
+bindText(key,selector);
+```
+
+#### 绑定文本，默认ID选择器且与key相同
+```
+bindText(key);
 ```
