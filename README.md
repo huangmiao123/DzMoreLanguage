@@ -75,6 +75,8 @@ var default_version = "en";
 setLang(key,value);
 #演示
 setLang("apple","苹果");
+#设置后直接绑定数据到UI
+bindText("apple");
 ```
 
 #### 获取语言库，含默认值 不进行数据绑定
@@ -82,6 +84,7 @@ setLang("apple","苹果");
 getLang(key,defalut_value);
 #演示
 var text = getLang("apple");
+alert(text);
 ```
 
 #### 返回值，没有值则返回null

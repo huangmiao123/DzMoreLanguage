@@ -26,6 +26,9 @@
   <br />
   <div id="div_1"></div>
   <br />
+  
+  <div id="div_2"></div>
+  <br />
   ------------------------------
   <br/>
   正常加载如下：<span id="app_1"></span><br/>
@@ -34,6 +37,8 @@
   
   <script src="Language/Lang.js"></script>
   <script>
+  	setLang("div_2","我是通过setLang设置并绑定的");
+  	bindText("div_2");
   	bindValue("val_1");
   	bindText("div_1");
 	autoBindView();
