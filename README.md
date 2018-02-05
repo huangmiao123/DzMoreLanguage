@@ -37,10 +37,12 @@ lang_version["en"] = "英语";
 
 ### 创建语言库规则
 > 比如：cn.js
-
  lang["module_1"] = "你好";//module_1是key ,"你好"是值（不包括双引号）
 
-> 想要自动加载的模块请使用url参数module_lang=模块名称。支持多模块自动加载。规则  =>(http://localhost:8080/index.html?module_lang=test,test2)
+ 想要自动加载的模块请使用url参数module_lang=模块名称。http://localhost:8080/index.html?module_lang=test
+
+### 加载多个语言模块
+支持多模块自动加载。规则  =>(http://localhost:8080/index.html?module_lang=test,test2)
 
 ### 设置语言
 #### URL设置语言版本（最高优先级）
