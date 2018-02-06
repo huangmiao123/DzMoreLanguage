@@ -147,3 +147,9 @@ bindText(key);
 ```
 bindTitle(key);
 ```
+
+#### 绑定标签属性
+```
+bindTag("tag1","title");
+# 绑定a标签 title属性
+```

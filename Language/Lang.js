@@ -151,6 +151,18 @@ function bindText(key){
 function bindTitle(key){
 	document.title = getLang(key);
 }
+
+function bindTag(key,tag,selector){
+	if(typeof(lang[key]) != "undefined"){
+		$(selector).attr(tag,lang[key]);
+	}
+}
+
+function bindTag(key,tag){
+	if(typeof(lang[key]) != "undefined"){
+		$("#" + key).attr(tag,lang[key]);
+	}
+}
 //======================================
 
 //url判断

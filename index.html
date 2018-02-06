@@ -34,7 +34,7 @@
   正常加载如下：<span id="app_1"></span><br/>
   test模块加载如下：<span id="module_1"></span><br />
   test2模块加载如下：<span id="module_2"></span><br />
-  <a href="demo.html?module_lang=demo&lang=cn" target="_blank">查看DEMO(中文版)</a> |   <a href="demo.html?module_lang=demo&lang=en" target="_blank">查看DEMO(英文版)</a>
+  <a id="tag1" href="demo.html?module_lang=demo&lang=cn" target="_blank">查看DEMO(中文版)</a> |   <a href="demo.html?module_lang=demo&lang=en" target="_blank">查看DEMO(英文版)</a>
   
   <script src="Language/Lang.js"></script>
   <script>
@@ -42,7 +42,8 @@
   	bindText("div_2");
   	bindValue("val_1");
   	bindText("div_1");
-	autoBindView();
+  	bindTag("tag1","title");
+	bindView("app_1");
   </script>
  </body>
 </html>
