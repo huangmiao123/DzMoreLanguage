@@ -19,7 +19,7 @@ function GetQueryString(name)
 {
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
      var r = window.location.search.substr(1).match(reg);
-     if(r!=null)return  unescape(r[2]); return null;
+     if(r!=null)return unescape(r[2]); return null;
 }
 
 function setCookie(name,value)
@@ -145,6 +145,11 @@ function bindText(key){
 	if(typeof(lang[key]) != "undefined"){
 		$("#" + key).text(lang[key]);
 	}
+}
+
+
+function bindTitle(key){
+	document.title = getLang(key);
 }
 //======================================
 

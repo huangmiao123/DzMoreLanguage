@@ -139,3 +139,8 @@ bindText(key,selector);
 ```
 bindText(key);
 ```
+
+#### 绑定浏览器标题
+```
+bindTitle(key);
+```
