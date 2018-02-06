@@ -143,12 +143,12 @@ bindText(key,selector);
 bindText(key);
 ```
 
-#### 绑定浏览器标题
+### 绑定浏览器标题
 ```
 bindTitle(key);
 ```
 
-#### 绑定标签属性
+### 绑定标签属性
 ```
 bindTag("tag1","title");
 # 绑定a标签 title属性
